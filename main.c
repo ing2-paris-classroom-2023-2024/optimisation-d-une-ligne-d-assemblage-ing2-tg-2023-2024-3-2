@@ -1,10 +1,71 @@
 #include "header.h"
 
 
+int main(){
+
+    char fichier_exclusion[63];
+    char fichier_precedence[63];
+
+
+    t_graphe * mon_graphe = NULL;
+
+    printf("Entrer les contraintes d'exclusions (exclusion.txt) : \n");
+    scanf("%s", fichier_exclusion);
+
+    printf("Entrer les contraintes de precedence (prec.txt) : \n");
+    scanf("%s", fichier_precedence);
+
+
+
+    printf("******************** EXCLUSION : ***********************\n");
+
+    mon_graphe = lire_fichier(fichier_exclusion);
+
+    for (int i = 0; i < mon_graphe->taille; ++i) {
+
+        printf("%d %d\n", mon_graphe->tab_arete[i].sommet1.numero, mon_graphe->tab_arete[i].sommet2.numero);
+
+    }
+
+
+
+
+    printf("******************** PRECEDENCE : ***********************\n");
+
+    mon_graphe = lire_fichier(fichier_precedence);
+
+    for (int i = 0; i < mon_graphe->taille; ++i) {
+
+        printf("%d %d\n", mon_graphe->tab_arete[i].sommet1.numero, mon_graphe->tab_arete[i].sommet2.numero);
+
+    }
+
+
+    return EXIT_SUCCESS;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 int main() {
 
-    /************* initialisation des variables ***************/
-    struct Graphe G ;
+
+
+    struct Graphe * G ;
     char nom_fichier[50] ;
     int nb_de_sommets ;
     int source, destination;
@@ -14,17 +75,19 @@ int main() {
     int i, j ;
 
 
+
+
     ////////////////////////// FICHIER D'EXCLUSION  //////////////////////////////
 
-    printf("Entrer les contraintes d'exclusions (exclusion.txt) : \n");
-    gets(nom_fichier);
+    //printf("Entrer les contraintes d'exclusions (exclusion.txt) : \n");
+    //gets(nom_fichier);
 
     //gestion du fichier//
-    FILE *file_exclusion = fopen(nom_fichier, "r");
+    FILE *file_exclusion = fopen("exclusion.txt", "r");
 
     if (file_exclusion == NULL) {
         printf("Erreur lors de l'ouverture du fichier.\n");
-        return 1;
+        exit(EXIT_FAILURE);
     }
 
     // Lire le nombre de sommets à partir du fichier
@@ -58,13 +121,7 @@ int main() {
 
     gets(nom_fichier);
 
-    //gestion du fichier//
-    FILE *file_prec = fopen(nom_fichier, "r");
 
-    if (file_prec == NULL) {
-        printf("Erreur lors de l'ouverture du fichier.\n");
-        return 1;
-    }
 
     // Lire le nombre de sommets à partir du fichier
     fscanf(file_prec, "%d", &nb_de_sommets);
@@ -120,3 +177,5 @@ int main() {
 
     return EXIT_SUCCESS;
 }
+
+ */

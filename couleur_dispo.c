@@ -4,7 +4,7 @@
 
 #include "header.h"
 
-
+/*
 // Fonction qui renvoie la première couleur disponible pour un sommet
 int couleur_dispo(struct Graphe *G, int s) {
     int couleur = 1; // On commence par la couleur 1
@@ -31,3 +31,4 @@ int couleur_dispo(struct Graphe *G, int s) {
     return couleur; // On renvoie la première couleur disponible
 }
 
+*/

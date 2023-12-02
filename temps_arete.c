@@ -5,7 +5,7 @@
 #include "header.h"
 
 
-
+/*
 
 void temps_arete(struct Graphe *G, int src, float tmp){
     for(int j = 0 ; j <= G->nb_de_sommets ; j++) {
@@ -15,4 +15,4 @@ void temps_arete(struct Graphe *G, int src, float tmp){
             printf("\n source = %d, temps = %0.2f", src, G->adjMatrice[src][j]);
         }
     }
-}
+}*/

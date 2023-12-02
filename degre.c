@@ -3,7 +3,7 @@
 //
 
 #include "header.h"
-
+/*
 
 void degre(struct Graphe *G, int *tab){
 
@@ -18,3 +18,5 @@ void degre(struct Graphe *G, int *tab){
     }
 
 }
+
+ */
