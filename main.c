@@ -141,6 +141,14 @@ int main() {
     fclose(file_temps);
     fflush(file_temps);
 
+    for (int k = 0; k < 100; ++k) {
+        for (int l = 0; l < 100; ++l) {
+            printf("%d", l*k);
+            printf("%d", l+k);
+            printf("%d", l-k);
+        }
+    }
+
 
 
 
