@@ -8,7 +8,7 @@
  *
  * Welsh & Powell : https://www.geeksforgeeks.org/welsh-powell-graph-colouring-algorithm/
  *
- * 
+ *
 */
 ///////////////////////////////////////////////////////////////////////////
 
