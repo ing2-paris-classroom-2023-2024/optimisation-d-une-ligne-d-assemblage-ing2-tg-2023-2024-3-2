@@ -50,8 +50,12 @@ void welsh_powell(struct Graphe *G, int *degre, const float *tab_temps, float tm
 
             cpt_tmp_station[col[max_ind]] = cpt_tmp_station[col[max_ind]] - tab_temps[max_ind];
 
-            color = color + 2;
-            cpt[color] = cpt[color] + 2;
+            col[max_ind] = col[max_ind] + 2 ;
+
+            cpt_tmp_station[col[max_ind]] = cpt_tmp_station[col[max_ind]] + tab_temps[max_ind] ;
+
+            color ++ ;
+            cpt[color] ++ ;
         }
 
 
