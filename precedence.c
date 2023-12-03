@@ -4,7 +4,6 @@
 
 #include "header.h"
 
-/*
 
 void precedence(struct Graphe *G, int *tab){
 
@@ -18,4 +17,3 @@ void precedence(struct Graphe *G, int *tab){
     }
 
 }
- */

@@ -3,7 +3,7 @@
 //
 
 #include "header.h"
-
+/*
 t_graphe * lire_fichier(char nomfichier[63]) {
 
     t_graphe * nouveau_graphe = malloc(sizeof (t_graphe));
@@ -103,4 +103,4 @@ t_graphe * lire_fichier(char nomfichier[63]) {
     fclose(pf);
 
     return nouveau_graphe;
-}
+}*/

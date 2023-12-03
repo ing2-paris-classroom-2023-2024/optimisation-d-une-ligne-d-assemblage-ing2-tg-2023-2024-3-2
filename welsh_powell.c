@@ -5,16 +5,21 @@
 
 #include "header.h"
 
-/*
 
 // Fonction qui applique l'algorithme de Welsh-Powell
-void welsh_powell(t_graphe * le_graphe, int *degre) {
+void welsh_powell(struct Graphe *G, int *degre, const float *tab_temps, float tmp_c) {
 
-    int col [45];
+    int color = 1;
+    int cpt[MAX_SOMMETS] = {0};
+    float* cpt_tmp_station = (float*)malloc(G->nb_de_sommets * sizeof(int));
+    for (int i = 1; i < G->nb_de_sommets +1 ; i++) {
+        cpt_tmp_station[i] = 0;
+    }
+
 
     int max_deg = -1; // Degré maximal des sommets
     int max_ind = -1; // Indice du sommet de degré maximal
-    for (int i = 0; i < le_graphe->ordre ; i++) {
+    for (int i = 0; i < G->nb_de_sommets ; i++) {
         col[i] = -1; // On initialise les couleurs à -1
         if (degre[i] > max_deg) {
             max_deg = degre[i]; // On met à jour le degré maximal
@@ -22,26 +27,65 @@ void welsh_powell(t_graphe * le_graphe, int *degre) {
         }
     }
 
-
     int nb_col = 0; // Nombre de couleurs utilisées
+
     while (max_deg > -1) { // Tant qu'il reste des sommets non colorés
-        col[max_ind] = couleur_dispo(G, max_ind); // On colore le sommet de degré maximal avec la première couleur disponible
+
+
+        for (int i = 1; i < 10 ; i++) {
+            printf("%f, ", cpt_tmp_station[i]);
+        }
+
+        printf("\n tab_temps[%d] = %f", max_ind, tab_temps[max_ind]);
+
+        col[max_ind] = couleur_dispo(G, max_ind, tmp_c, cpt_tmp_station, &tab_temps[max_ind], color, cpt); // On colore le sommet de degré maximal avec la première couleur disponibl
+
+
+
+
+        // Mettez à jour le tableau de cpt_tmp_station
+        printf(" \n \n cpt_tmp_station[%d : %d] = %0.2f \n", max_ind, col[max_ind], tab_temps[max_ind] );
+        cpt_tmp_station[col[max_ind]] += tab_temps[max_ind] ;
+
+
+        if (cpt_tmp_station[col[max_ind]] > tmp_c) {
+            printf("\n le compteur temps a depasse le temps de cycle");
+            printf("\n compteur_temps : %f > temps_cycle : %f ", cpt_tmp_station[col[max_ind]], tmp_c);
+
+            cpt_tmp_station[col[max_ind]] = cpt_tmp_station[col[max_ind]] - tab_temps[max_ind];
+            printf("\n %f = %f - %f ", cpt_tmp_station[col[max_ind]] , cpt_tmp_station[col[max_ind]], tab_temps[max_ind]);
+
+            //cpt_tmp_station[col[max_ind]] += tab_temps[max_ind] ;
+
+            color = color + 2;
+            cpt[color] = cpt[color] + 2;
+        }
+
+
+
         if (col[max_ind] > nb_col) {
             nb_col = col[max_ind]; // On met à jour le nombre de couleurs utilisées
         }
+
         degre[max_ind] = -1; // On marque le sommet comme coloré
         max_deg = -1; // On réinitialise le degré maximal
-        for (int i = 0; i < G->nb_de_sommets ; i++) {
+        for (int i = 1; i < G->nb_de_sommets +1 ; i++) {
             if (degre[i] > max_deg) {
                 max_deg = degre[i]; // On met à jour le degré maximal
                 max_ind = i; // On met à jour l'indice du sommet de degré maximal
             }
         }
     }
-    printf("Nombre de couleurs utilisees : %d\n", nb_col);
+    printf("\nNombre de couleurs utilisees : %d\n", nb_col);
     printf("Couleurs des sommets : \n");
-    for (int i = 0; i < G->nb_de_sommets ; i++) {
-        printf("Sommet %d : couleur %d\n", i+1, col[i]);
+    for (int i = 1 ; i < G->nb_de_sommets +1 ; i++) {
+        printf("Sommet %d : couleur %d\n", i , col[i]);
     }
+
+    //print tab compteur
+    for (int i = 0; i < nb_col; i++) {
+        printf("Temps des sommets avec la couleur %d : %0.2f\n", i + 1 , cpt_tmp_station[i+1]);
+    }
+
+    free(cpt_tmp_station);
 }
-*/
