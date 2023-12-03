@@ -36,26 +36,19 @@ void welsh_powell(struct Graphe *G, int *degre, const float *tab_temps, float tm
             printf("%f, ", cpt_tmp_station[i]);
         }
 
-        printf("\n tab_temps[%d] = %f", max_ind, tab_temps[max_ind]);
-
-        col[max_ind] = couleur_dispo(G, max_ind, tmp_c, cpt_tmp_station, &tab_temps[max_ind], color, cpt); // On colore le sommet de degré maximal avec la première couleur disponibl
+        col[max_ind] = couleur_dispo(G, max_ind, color, cpt); // On colore le sommet de degré maximal avec la première couleur disponibl
 
 
 
 
         // Mettez à jour le tableau de cpt_tmp_station
-        printf(" \n \n cpt_tmp_station[%d : %d] = %0.2f \n", max_ind, col[max_ind], tab_temps[max_ind] );
+        printf(" \n \n La tache %d est dans la station %d. \n Son temps est de : %0.2f \n", max_ind, col[max_ind], tab_temps[max_ind] );
         cpt_tmp_station[col[max_ind]] += tab_temps[max_ind] ;
 
 
         if (cpt_tmp_station[col[max_ind]] > tmp_c) {
-            printf("\n le compteur temps a depasse le temps de cycle");
-            printf("\n compteur_temps : %f > temps_cycle : %f ", cpt_tmp_station[col[max_ind]], tmp_c);
 
             cpt_tmp_station[col[max_ind]] = cpt_tmp_station[col[max_ind]] - tab_temps[max_ind];
-            printf("\n %f = %f - %f ", cpt_tmp_station[col[max_ind]] , cpt_tmp_station[col[max_ind]], tab_temps[max_ind]);
-
-            //cpt_tmp_station[col[max_ind]] += tab_temps[max_ind] ;
 
             color = color + 2;
             cpt[color] = cpt[color] + 2;
@@ -76,15 +69,20 @@ void welsh_powell(struct Graphe *G, int *degre, const float *tab_temps, float tm
             }
         }
     }
-    printf("\nNombre de couleurs utilisees : %d\n", nb_col);
-    printf("Couleurs des sommets : \n");
+    printf("\nNombre de stations minimum : %d\n", nb_col);
+
+    printf("\n ****************    Repartition des taches par station :    *************** \n");
+
+
+    printf("\nTache -> Station\n");
     for (int i = 1 ; i < G->nb_de_sommets +1 ; i++) {
-        printf("Sommet %d : couleur %d\n", i , col[i]);
+        printf("  %d   ->   %d \n", i , col[i]);
     }
 
     //print tab compteur
     for (int i = 0; i < nb_col; i++) {
-        printf("Temps des sommets avec la couleur %d : %0.2f\n", i + 1 , cpt_tmp_station[i+1]);
+        printf("\n*****    Somme des temps des taches dans la station  %d  ******\n",  i + 1);
+        printf("                               %0.2f\n", cpt_tmp_station[i+1]);
     }
 
     free(cpt_tmp_station);

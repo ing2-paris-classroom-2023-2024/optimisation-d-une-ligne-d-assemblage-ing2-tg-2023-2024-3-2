@@ -59,7 +59,7 @@ t_graphe * lire_fichier(char * nomfichier);
 
 void init_graphe(struct Graphe *G, int nb_de_sommets);
 void ajouter_arete(struct Graphe *G, int source, int destination);
-int couleur_dispo(struct Graphe *G, int s, float temps_cycle, float *compteur_temps, const float* tmp_ind_actuel, int couleur, int* compteur);
+int couleur_dispo(struct Graphe *G, int s, int couleur, int* compteur);
 void welsh_powell(struct Graphe *G, int *degre, const float *tab_temps, float tmp_c);
 void degre(struct Graphe *G, int *tab);
 void precedence(struct Graphe *G, int *tab);

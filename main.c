@@ -166,15 +166,6 @@ int main() {
     fflush(file_prec);
 
 
-    printf("\n\naffichage de la matrice :\n");
-    for (i = 0; i <= G.nb_de_sommets -1 ; i++) {
-        for (j = 0; j <= G.nb_de_sommets -1 ; j++) {
-            printf("%0.0f ", G.adjMatrice[i][j]);
-        }
-        printf("\n");
-    }
-
-
     precedence(&G, prec);
 
 

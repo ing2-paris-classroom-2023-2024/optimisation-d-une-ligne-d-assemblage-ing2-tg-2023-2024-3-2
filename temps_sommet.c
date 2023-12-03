@@ -7,7 +7,6 @@
 float* temps_sommet(struct Graphe *G, float *tab, int src, float tmp) {
 
     tab[src] = tmp ;
-    printf("\n tab[%d] = %0.2f", src, tab[src]);
 
     return tab; // Retourne le pointeur vers le premier élément du tableau
 }
