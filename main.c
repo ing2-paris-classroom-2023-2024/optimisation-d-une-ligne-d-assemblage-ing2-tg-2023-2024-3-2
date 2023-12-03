@@ -16,7 +16,7 @@ int main() {
 
     ////////////////////////// FICHIER D'EXCLUSION  //////////////////////////////
 
-    printf("Entrer les contraintes d'exclusions (exclusion.txt) : \n");
+    printf("Entrer les contraintes d'exclusions (exclusions.txt) : \n");
     gets(nom_fichier);
 
     //gestion du fichier//
@@ -47,7 +47,7 @@ int main() {
 
 ////////////// POUR EXCLUSION /////////////////
 
-    printf("\n Entrer les contraintes de temps (temps.txt) : \n");
+    printf("\n Entrer les contraintes de temps (operations.txt) : \n");
     gets(nom_fichier);
 
 
@@ -89,7 +89,7 @@ int main() {
 
     ////////////////////////// FICHIER DE PRECEDENCE ///////////////////////
 
-    printf("Entrer les contraintes de precedence (prec.txt) : \n");
+    printf("Entrer les contraintes de precedence (precedences.txt) : \n");
     gets(nom_fichier);
 
     //gestion du fichier//
@@ -121,7 +121,7 @@ int main() {
 
     ////////////// POUR PRECEDENCE /////////////////
 
-    printf("\n Entrer les contraintes de temps (temps.txt) : \n");
+    printf("\n Entrer les contraintes de temps (operations.txt) : \n");
     gets(nom_fichier);
 
     //gestion du fichier//
@@ -140,6 +140,8 @@ int main() {
 
     fclose(file_temps);
     fflush(file_temps);
+
+
 
 
 
