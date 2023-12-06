@@ -18,7 +18,7 @@ void init_graphe_prec(struct Graphe *G_prec, int nb_de_sommets) {
 
 void init_graphe_exclu(struct Graphe *G_exclu, int nb_de_sommets) {
     G_exclu->nb_de_sommets = nb_de_sommets;
-    printf("%d", G_exclu->nb_de_sommets);
+
 
     G_exclu->adjMatrice = (float **) malloc(sizeof(float *) * nb_de_sommets);
     for (int i = 0; i < nb_de_sommets; ++i) {

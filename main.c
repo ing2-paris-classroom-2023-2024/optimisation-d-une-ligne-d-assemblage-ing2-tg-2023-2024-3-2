@@ -8,7 +8,7 @@ int main() {
     char nom_fichier1[50];
 
 
-    printf("\n Entrer les contraintes de temps (temps.txt) : \n");
+    printf("\n Entrer les contraintes de temps (operations.txt) : \n");
     gets(nom_fichier);
 
     //gestion du fichier//
@@ -26,7 +26,7 @@ int main() {
         if (t1 > max_sommet) max_sommet = t1;
 
     }
-    printf("Il y a %d taches a effectue\n", max_sommet);
+    printf("Il y a %d taches a effectuer\n", max_sommet);
 
     rewind(file_temps);
 
@@ -46,11 +46,9 @@ int main() {
     int nb_de_sommets = max_sommet;
     int source, destination;
     int deg[nb_de_sommets];
-    int prec[nb_de_sommets];
 
 
     float temps_cycle;
-    int i, j;
 
 
 
@@ -59,9 +57,9 @@ int main() {
 
 
     ////////////////////////// FICHIER D'EXCLUSION  //////////////////////////////
-    printf("//////////////////////////////////////////////EXCLUSION//////////////////////////////////////////////\n\n\n\n");
+    printf("\n\n//////////////////////////////////////////////EXCLUSION//////////////////////////////////////////////\n\n\n\n");
 
-    printf("Entrer les contraintes d'exclusions (exclusion.txt) : \n");
+    printf("Entrer les contraintes d'exclusions (exclusions.txt) : \n");
     gets(nom_fichier);
 
     //gestion du fichier//
@@ -115,9 +113,9 @@ int main() {
 
 
     ////////////////////////// FICHIER DE PRECEDENCE ///////////////////////
-    printf("//////////////////////////////////////////////PRECEDENCE//////////////////////////////////////////////\n\n\n\n");
+    printf("\n\n//////////////////////////////////////////////PRECEDENCE//////////////////////////////////////////////\n\n\n\n");
 
-    printf("Entrer les contraintes de precedence (prec.txt) : \n");
+    printf("Entrer les contraintes de precedence (precedences.txt) : \n");
     gets(nom_fichier);
 
     //gestion du fichier//
@@ -141,7 +139,7 @@ int main() {
 
     while (fscanf(file_prec, "%d %d", &source, &destination) != -1) {
         ajouter_arete_prec(&G_prec, source, destination);
-        printf("bouh");
+
     }
 
 
