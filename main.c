@@ -46,9 +46,11 @@ int main() {
     int nb_de_sommets = max_sommet;
     int source, destination;
     int deg[nb_de_sommets];
+    int prec[nb_de_sommets];
 
 
     float temps_cycle;
+    int i, j;
 
 
 
