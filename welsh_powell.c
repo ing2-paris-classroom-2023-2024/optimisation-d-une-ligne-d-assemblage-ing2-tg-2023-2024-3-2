@@ -5,9 +5,6 @@
 void welsh_powell(struct Graphe *G_exclu, int *degre, const float *tab_temps, float tmp_c) {
 
 
-
-
-
     int color = 1;
     int col[G_exclu->nb_de_sommets];
     int cpt[G_exclu->nb_de_sommets];

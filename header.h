@@ -43,6 +43,6 @@ void welsh_powell(struct Graphe *G_exclu, int *degre, const float *tab_temps, fl
 void precedence(struct Graphe *G_prec, const float *tab_temps, float tmp_c);
 
 
-
+int main();
 
 #endif //LIGNE_HEADER_H
