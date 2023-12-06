@@ -82,31 +82,31 @@ void welsh_powell(struct Graphe *G_exclu, int *degre, const float *tab_temps, fl
 
     int **tab_affichage_sommet__station;
     tab_affichage_sommet__station = (int **) malloc(sizeof(int *) * nb_col);
-    int tab_taille_station[nb_col];
+    int tab_taille_station[nb_col+1];
 
-    for (int i = 0; i < nb_col; ++i) {
+    for (int i = 0; i < nb_col+1; ++i) {
         tab_taille_station[i] = 0;
     }
 
     for (int i = 0; i < G_exclu->nb_de_sommets; ++i) {
-        for (int j = 0; j < nb_col; ++j) {
+        for (int j = 0; j < nb_col+1; ++j) {
             if (col[i] == j)
                 tab_taille_station[j]++;
         }
     }
 
 
-    for (int i = 0; i < nb_col; ++i) {
+    for (int i = 0; i < nb_col+1; ++i) {
         tab_affichage_sommet__station[i] = (int *) malloc(sizeof(int) * tab_taille_station[i]);
     }
 
-    for (int i = 0; i < nb_col; ++i) {
+    for (int i = 0; i < nb_col+1; ++i) {
         for (int j = 0; j < tab_taille_station[i]; ++j) {
             tab_affichage_sommet__station[i][j] = 0;
         }
     }
 
-    for (int i = 0; i < nb_col; ++i) {
+    for (int i = 0; i < nb_col+1; ++i) {
         for (int j = 0; j < tab_taille_station[i]; ++j) {
             for (int k = 0; k < G_exclu->nb_de_sommets; ++k) {
                 if (col[k] == i) {
@@ -117,14 +117,20 @@ void welsh_powell(struct Graphe *G_exclu, int *degre, const float *tab_temps, fl
         }
     }
 
+    for (int i = 0; i < nb_col+1; ++i) {
+        printf("%d, ", tab_taille_station[i]);
+    }
 
-    for (int i = 1; i < nb_col; ++i) {
-        printf("############### station %d ###############\n\nListe de taches:", i);
-        for (int j = 0; j < tab_taille_station[i]; ++j) {
-            printf("%d, ", tab_affichage_sommet__station[i][j]);
+
+
+    for (int i = 0; i < nb_col; ++i) {
+        printf("############### station %d ###############\n\nListe de taches:", i+1);
+        for (int j = 0; j < tab_taille_station[i+1]; ++j) {
+            if(tab_temps[j] != 0)
+            printf("%d, ", tab_affichage_sommet__station[i+1][j]);
 
         }
-        printf("\nTemps total: %.2f", cpt_tmp_station[i]);
+        printf("\nTemps total: %.2f", cpt_tmp_station[i+1]);
 
 
         printf("\b\n\n");

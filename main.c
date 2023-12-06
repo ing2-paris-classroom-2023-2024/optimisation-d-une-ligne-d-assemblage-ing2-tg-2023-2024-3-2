@@ -59,7 +59,7 @@ int main() {
 
 
     ////////////////////////// FICHIER D'EXCLUSION  //////////////////////////////
-    printf("//////////////////////////////////////////////EXCLUSION//////////////////////////////////////////////\n\n\n\n");
+    printf("\n\n//////////////////////////////////////////////EXCLUSION//////////////////////////////////////////////\n\n\n\n");
 
     printf("Entrer les contraintes d'exclusions (exclusion.txt) : \n");
     gets(nom_fichier);
@@ -117,7 +117,7 @@ int main() {
     ////////////////////////// FICHIER DE PRECEDENCE ///////////////////////
     printf("//////////////////////////////////////////////PRECEDENCE//////////////////////////////////////////////\n\n\n\n");
 
-    printf("Entrer les contraintes de precedence (prec.txt) : \n");
+    printf("Entrer les contraintes de precedence (precedence.txt) : \n");
     gets(nom_fichier);
 
     //gestion du fichier//
@@ -141,7 +141,7 @@ int main() {
 
     while (fscanf(file_prec, "%d %d", &source, &destination) != -1) {
         ajouter_arete_prec(&G_prec, source, destination);
-        printf("bouh");
+
     }
 
 

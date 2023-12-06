@@ -150,7 +150,7 @@ void precedence(struct Graphe *G_prec, const float *tab_temps, float tmp_c) {
 
     float provisoir_counter=0;
     for (int i = 1; i < cpt_station; ++i) {
-        printf("\n############### station %d ###############\n\n\n\nListe de taches:\n", i);
+        printf("\n############### station %d ###############\n\nListe de taches:\n", i);
         for (int j = 0; j < G_prec->nb_de_sommets; ++j) {
             if(tab_tache_station[i][j] != 0){
                 printf("%d, ",tab_tache_station[i][j]);
